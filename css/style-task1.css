@@ -1,0 +1,211 @@
+/* ===== Tokens ===== */
+:root {
+  --green: #0F6B5F;
+  --orange: #F2A93B;
+  --ink: #16302B;
+  --field: #F4F7F5;
+  --line: #E6EFEC;
+  --muted: #7D918B;
+  --bs-body-font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--line);
+  color: var(--ink);
+}
+
+/* ===== Card ===== */
+.ticket-card {
+  border: 0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 2.5rem rgba(22, 48, 43, 0.15);
+}
+
+.ticket-header {
+  background-color: var(--green);
+  border: 0;
+  padding: 1rem 1.25rem;
+}
+
+.ticket-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ticket-body {
+  padding: 1.25rem;
+}
+
+/* ===== Form base ===== */
+.ticket-form {
+  --bs-border-radius: 0.75rem;   /* Bootstrap reads this for every control */
+  font-size: 0.85rem;
+}
+
+.ticket-form .form-label,
+.ticket-form legend {
+  float: none;
+  width: auto;
+  padding: 0;
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ticket-form .form-control,
+.ticket-form .form-select {
+  background-color: var(--field);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+
+.ticket-form .form-control::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.ticket-form .form-control:focus,
+.ticket-form .form-select:focus {
+  background-color: #fff;
+  border-color: var(--green);
+  box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.2);
+}
+
+/* Red border only after the user touched the field */
+.ticket-form .form-control:user-invalid,
+.ticket-form .form-select:user-invalid {
+  border-color: #dc3545;
+}
+
+/* ===== Floating labels (From / To): label always small, placeholder visible ===== */
+.ticket-form .form-floating > .form-control {
+  padding-top: 1.625rem;
+  padding-bottom: 0.5rem;
+}
+
+.ticket-form .form-floating > .form-control::placeholder {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.ticket-form .form-floating > label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+/* Bootstrap 5.3 paints a white box behind floated labels; we don't want it on a grey field */
+.ticket-form .form-floating > .form-control ~ label::after {
+  display: none;
+}
+
+/* ===== Trip type: radio inputs shown as a pill button group ===== */
+.trip-toggle {
+  --bs-btn-border-radius: 50rem;
+}
+
+.trip-toggle .btn {
+  --bs-btn-padding-x: 1.25rem;
+  --bs-btn-padding-y: 0.4rem;
+  --bs-btn-font-size: 0.8rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--green);
+  --bs-btn-bg: #fff;
+  --bs-btn-border-color: var(--green);
+  --bs-btn-hover-color: var(--green);
+  --bs-btn-hover-bg: var(--line);
+  --bs-btn-hover-border-color: var(--green);
+  --bs-btn-active-color: #fff;       /* used by .btn-check:checked + .btn */
+  --bs-btn-active-bg: var(--green);
+  --bs-btn-active-border-color: var(--green);
+}
+
+.trip-toggle .btn-check:focus-visible + .btn {
+  box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.35);
+}
+
+/* ===== Radios, checkbox, switch: green instead of Bootstrap blue ===== */
+.ticket-form .form-check-input {
+  background-color: #fff;
+  border-color: #9fb4ae;
+}
+
+.ticket-form .form-check-input:checked {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+.ticket-form .form-check-input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.25);
+}
+
+.ticket-form .form-check-label {
+  font-size: 0.8rem;
+}
+
+/* ===== Phone prefix ===== */
+.ticket-form .input-group-text {
+  background-color: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===== Buttons ===== */
+.btn-find,
+.btn-clear {
+  --bs-btn-border-radius: 50rem;
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: 0.6rem;
+  --bs-btn-font-size: 0.85rem;
+  --bs-btn-font-weight: 700;
+}
+
+.btn-find {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--orange);
+  --bs-btn-border-color: var(--orange);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #E09A2B;
+  --bs-btn-hover-border-color: #E09A2B;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #CF8B22;
+  --bs-btn-active-border-color: #CF8B22;
+  --bs-btn-focus-shadow-rgb: 242, 169, 59;
+}
+
+.btn-clear {
+  --bs-btn-color: var(--ink);
+  --bs-btn-bg: #fff;
+  --bs-btn-border-color: var(--ink);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--ink);
+  --bs-btn-hover-border-color: var(--ink);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--ink);
+  --bs-btn-active-border-color: var(--ink);
+  --bs-btn-focus-shadow-rgb: 22, 48, 43;
+}
+
+/* ===== Laptop and wider ===== */
+@media (min-width: 768px) {
+  .ticket-header {
+    padding: 1.5rem 2.25rem;
+  }
+
+  .ticket-title {
+    font-size: 1.5rem;
+  }
+
+  .ticket-body {
+    padding: 2rem 2.25rem;
+  }
+}
